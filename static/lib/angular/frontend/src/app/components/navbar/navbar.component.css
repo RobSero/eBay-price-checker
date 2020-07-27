@@ -1,0 +1,10 @@
+.nav-bar {
+  background-color: red;
+  height: 50px;
+  text-align: center;
+}
+
+.nav-bar h1 {
+  color: blue;
+  font-size: 25px;
+}
