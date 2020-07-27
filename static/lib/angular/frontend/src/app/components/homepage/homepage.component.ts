@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +11,7 @@ export class HomepageComponent implements OnInit {
 userInput:string
 @Output() searchProduct: EventEmitter<any> = new EventEmitter()
 
-  constructor() { }
+  constructor(private _router: Router) {}
   ngOnInit(): void {
   }
 
@@ -18,6 +20,14 @@ userInput:string
   }
 
 submitForm(){
-  this.searchProduct.emit(this.userInput)
+  this._router.navigate(['/results'], {
+    queryParams: {
+      searchString: this.userInput
+    },
+    queryParamsHandling: 'merge',
+    // preserve the existing query params in the route
+    skipLocationChange: true
+    // do not trigger navigation
+  })
 }
 }

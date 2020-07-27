@@ -5,6 +5,12 @@
 }
 
 .nav-bar h1 {
+  margin: 0 auto;
   color: blue;
   font-size: 25px;
+  width: 30px;
+}
+
+.nav-bar h1:hover {
+  cursor: pointer;
 }
