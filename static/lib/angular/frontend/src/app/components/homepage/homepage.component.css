@@ -1,0 +1,54 @@
+.home-section {
+  height: 90vh;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+}
+
+.search-container {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10% 0;
+}
+
+.search-header {
+  font-size: 20px;
+}
+
+.search-bar {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 25px;
+  width: 50%;
+  height: 50px;
+  border-radius: 5px;
+  border: grey 1px solid;
+}
+
+.search-button {
+  display: inline-block;
+  width: 150px;
+  height: 30px;
+  background-color: pink;
+  border-radius: 5px;
+  border: grey 1px solid;
+  margin-top: 10px;
+  transition: all 0.4s ease;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  background-color: rgb(212, 143, 155);
+}
+
+
+
+@media only screen and (max-width: 900px) {
+  .search-bar {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search-bar {
+    width: 90%;
+  }
+}
