@@ -1,7 +1,7 @@
 <section class="home-section">
-  <form class="search-container">
+  <form class="search-container" (ngSubmit)='submitForm()'>
   <h1 class="search-header">What product are you looking for?</h1>
-  <input class="search-bar" type="text" name='searchbar' placeholder='Product Name' />
+  <input (ngModelChange)='printInput()' class="search-bar" type="text" name='userInput' placeholder='Product Name' [(ngModel)]='userInput' />
   <br />
   <button class="search-button" type="submit">Find it!</button>
 </form>
