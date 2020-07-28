@@ -1,2 +1,46 @@
-<p>resultspage works!</p>
-<p>params = {{paramTest}}</p>
+<section class="results-section">
+
+<p>Search Results: <strong>{{paramTest}}</strong></p>
+
+
+<div class="flex-results">
+  <div class="flex-results-item">
+    <p>Average Buyout Price = {{listingData.average_price}}</p>
+  </div>
+  <div class="flex-results-item">
+    <img class="results-image" src={{listingData.image}} alt={{paramTest}}/>
+  </div>
+  <div class="flex-results-item">
+    <button class="results-submit">Send me the Excel Data</button>
+  </div>
+</div>
+
+
+<!-- EBAY DATA TABLE -->
+<div class="table-container">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Listing Name</th>
+      <th>Price</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Listing Name</th>
+      <th>Price</th>
+      <th>Condition</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr *ngFor="let listing of listingData.results">
+      <td>{{listing[0]}}</td>
+      <td>£{{listing[1] | number:'1.2-2'}}</td>
+      <td>{{listing[2]}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</section>

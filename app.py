@@ -1,6 +1,11 @@
 from flask import Flask
+from flask_cors import CORS
 from static.server.scraper import result_generator
+
+
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route('/')
 def yo():
@@ -8,7 +13,7 @@ def yo():
 
 
 #  search result api
-@app.route('/search/<input>')
+@app.route('/api/search/<input>')
 def scrape_results(input):
   return result_generator(input=input)
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {ScrapedataService} from '../../services/scrapedata.service'
 
 
 @Component({
@@ -9,11 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResultspageComponent implements OnInit {
 paramTest:string = 'hello'
-  constructor(private route: ActivatedRoute) { }
+listingData: Object;
+  constructor(private route: ActivatedRoute, private ScrapedataService: ScrapedataService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.paramTest = params['searchString'];
+      this.ScrapedataService.getEbayData(params['searchString']).subscribe(resEbayLisitings => {
+        this.listingData = resEbayLisitings
+      })
   })
+
   }
 }

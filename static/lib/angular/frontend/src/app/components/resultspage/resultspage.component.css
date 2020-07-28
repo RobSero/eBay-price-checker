@@ -1,0 +1,51 @@
+.flex-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.results-section {
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+  min-height: 90vh;
+}
+
+
+.flex-results-item {
+  padding: 5px;
+  width: 25%;
+  min-width: 220px;
+  text-align: center;
+}
+
+.flex-results-item p {
+  margin: 20% auto;
+  font-size: 25px;
+}
+
+.results-image {
+  width: 50%;
+  border-radius: 50%;
+}
+
+
+.results-submit {
+  display: inline-block;
+  width: 170px;
+  padding: 5px;
+  background-color: pink;
+  border-radius: 5px;
+  border: grey 1px solid;
+  margin: 20% auto;
+  transition: all 0.4s ease;
+  font-size: 15px;
+}
+
+.results-submit:hover {
+  cursor: pointer;
+  background-color: rgb(212, 143, 155);
+}
+
+.table {
+  margin: 0 auto;
+}
+
