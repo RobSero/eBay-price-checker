@@ -5,7 +5,7 @@ import requests
 import pprint #for testing purposes only, cleaner list printing
 
 
-def result_generator(input=input):
+def result_generator(input):
   #  get string from searchbar
   user_input = input
   # if spaces, replace with '+'
