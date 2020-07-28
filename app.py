@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from static.server.scraper import result_generator
@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.debug = True
 api = Api(app)
 CORS(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 @app.route('/')
@@ -43,10 +44,19 @@ class scrape_results(Resource):
 
 class send_results(Resource):
     def post(self):
-        user_email = request.json['user_email']
+        print('recieved')
+        user_email = request.json['name']
         print(user_email)
         createSpreadsheet(request.json)
-        return 'hello'
+        print(f'{request.json["name"]} - eBayData.xlsx')
+        # return  send_from_directory('./', f'{request.json["name"]} - eBayData.xlsx', as_attachment=True)
+        f = open(f'{request.json["name"]} - eBayData.xlsx', 'rb')
+        output = make_response(f.read())
+        output.headers["Content-Disposition"] = "attachment; filename=report.xlsx"
+        output.headers["Content-type"] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        f.close()
+        return output
+
 
 
 

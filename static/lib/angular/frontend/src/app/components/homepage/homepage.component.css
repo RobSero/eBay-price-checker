@@ -1,12 +1,13 @@
 .home-section {
-  height: 90vh;
   background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+  width: 100vw ;
 }
 
 .search-container {
   text-align: center;
   margin: 0 auto;
-  padding: 10% 0;
+  padding: 10% 2px;
+  width: 95vw;
 }
 
 .search-header {
@@ -25,18 +26,20 @@
 
 .search-button {
   display: inline-block;
-  width: 150px;
-  height: 30px;
-  background-color: pink;
+  width: 200px;
+  height: 40px;
+  background-color: rgb(202, 141, 151);
   border-radius: 5px;
   border: grey 1px solid;
   margin-top: 10px;
   transition: all 0.4s ease;
+  font-size: 18px;
 }
 
 .search-button:hover {
   cursor: pointer;
-  background-color: rgb(212, 143, 155);
+  background-color: #691c3a;
+  color: white;
 }
 
 

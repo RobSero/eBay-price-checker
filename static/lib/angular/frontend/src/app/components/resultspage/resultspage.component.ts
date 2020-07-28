@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ScrapedataService} from '../../services/scrapedata.service'
+import {ScrapedataService } from '../../services/scrapedata.service'
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 
@@ -16,10 +16,6 @@ listingData = placeholder
   constructor(private route: ActivatedRoute, private ScrapedataService: ScrapedataService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-
-
-
-
     this.route.queryParams.subscribe(params => {
       this.paramTest = params['searchString'];
       this.ScrapedataService.getEbayData(params['searchString']).subscribe(resEbayLisitings => {
@@ -27,7 +23,14 @@ listingData = placeholder
         this.listingData = resEbayLisitings
       })
   })
+  }
 
+  getSpreadsheet(){
+    this.ScrapedataService.getSpreadsheetFile(this.listingData).subscribe(resFile => {
+      console.log('got file');
+      
+    })
+    
   }
 }
 

@@ -1,17 +1,17 @@
 <section class="results-section">
 
-<p>Search Results: <strong>{{paramTest}}</strong></p>
+<p class="results-tab">Search Results: <strong>{{paramTest}}</strong></p>
 
 
 <div class="flex-results">
   <div class="flex-results-item">
-    <p>Average Buyout Price = {{listingData.average_price}}</p>
+    <p>Average Buyout Price: <span class="price-tag">{{listingData.average_price}}</span></p>
   </div>
   <div class="flex-results-item">
     <img class="results-image" src={{listingData.image}} alt={{paramTest}}/>
   </div>
   <div class="flex-results-item">
-    <button class="results-submit">Send me the Excel Data</button>
+    <button class="results-submit" (click)='getSpreadsheet()'>Download Information in Excel</button>
   </div>
 </div>
 

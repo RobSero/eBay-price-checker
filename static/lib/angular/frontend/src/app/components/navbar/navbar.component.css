@@ -1,14 +1,18 @@
 .nav-bar {
-  background-color: red;
+  background-color: #691c3a;
   height: 50px;
   text-align: center;
+  width: 100vw;
+  margin: 0 auto;
 }
 
 .nav-bar h1 {
   margin: 0 auto;
-  color: blue;
+  padding-top: 5px;
+  font-family: 'Ranchers', cursive;
+  color: rgb(255, 255, 255);
   font-size: 25px;
-  width: 30px;
+  width: 30%;
 }
 
 .nav-bar h1:hover {
