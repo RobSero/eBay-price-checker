@@ -14,17 +14,19 @@ def result_generator(input=input):
   listing_type = 'LH_BIN=1'
 
   #  get html/css/js from site
-  res = requests.get(f'https://www.ebay.co.uk/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR12.TRC2.A0.H0.Xiphone+x.TRS0&_nkw={user_input}&_sacat=0&{listing_type}')
+  res = requests.get(f'https://www.ebay.co.uk/sch/i.html?_from=R40&_nkw={user_input}&_sacat=0&rt=nc&{listing_type}')
+  
   print(res.status_code)
 
-
+#srp-river-results > ul > li:nth-child(7) > div > div.s-item__info.clearfix > a
 
 
   # if len > 0, scape data
   soup = bs4.BeautifulSoup(res.text, 'html.parser')
  
-  # get item titles, quality
+  # get item titles, quality,link
   element_titles = soup.select('.s-item__title')
+  element_link = soup.select('.s-item__image')
     # if len = 0, show no results
   if len(element_titles) == 0:
     return 'Could not find any results for this product, try checking your spelling'
@@ -43,13 +45,32 @@ def result_generator(input=input):
     else:
       element_prices.append(float(subRegex.sub('', price.text)))
 
+
+# get item link through regex of tag
+  link_regex = re.compile(r'href=\"(.*)BIN=1\"')
+  element_link_list = []
+  for atag in element_link:
+    link_match = link_regex.search(str(atag))
+    link_string = link_match.group().replace('href=','').replace('"','')
+  # push to results
+    element_link_list.append(link_string)
+    
+    
   # build data tuples in results
   results = []
   for i in range(len(element_titles)):
-    results.append((element_titles[i].text, element_prices[i], element_quality[i].text))
+    results.append((element_titles[i].text, element_prices[i], element_quality[i].text, element_link_list[i]))
     
   # find average price
   average_price = round(sum(element_prices) / len(element_prices), 2)
+
+
+  
+  
+
+
+
+
 
   #  get first item image src
   item_image = soup.select('#srp-river-results > ul > li:nth-child(6) > div > div.s-item__image-section > div > a > div > img')

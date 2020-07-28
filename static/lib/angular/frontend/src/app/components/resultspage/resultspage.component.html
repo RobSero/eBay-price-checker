@@ -15,7 +15,7 @@
   </div>
 </div>
 
-
+<!--  -->
 <!-- EBAY DATA TABLE -->
 <div class="table-container">
 
@@ -36,11 +36,16 @@
   </tfoot>
   <tbody>
     <tr *ngFor="let listing of listingData.results">
-      <td>{{listing[0]}}</td>
+     
+      <td> <a href={{listing[3]}} target="_blank">{{listing[0]}}</a></td>
       <td>£{{listing[1] | number:'1.2-2'}}</td>
       <td>{{listing[2]}}</td>
+    
     </tr>
   </tbody>
 </table>
 </div>
+
+
+<ng-template #loading>Loading eBay Data...</ng-template>
 </section>
