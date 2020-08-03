@@ -5,15 +5,15 @@ from static.server.scraper import result_generator
 from static.server.excelwriter import createSpreadsheet
 
 app = Flask(__name__)
-app.debug = True
+app.run(debug=True)
 api = Api(app)
 CORS(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 @app.route('/')
-def yo():
-  return 'yo'
+def send_frontend():
+  return '<h1>Heya flask here</h1>'
 
 
 # #  search result api
@@ -58,7 +58,7 @@ class create_results(Resource):
 class send_results(Resource):
   def get(self, filename):
         print('recieved')
-        return send_file(f'{filename}_eBayData.xlsx', as_attachment=True)
+        return send_file(f'./sheets/{filename}_eBayData.xlsx', as_attachment=True)
 
 
 
