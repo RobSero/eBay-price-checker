@@ -11,9 +11,10 @@ CORS(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
-@app.route('/')
-def send_frontend():
-  return '<h1>Heya flask here</h1>'
+class home(Resource):
+    def get(self):
+        return '<h1>Hello</h1>'
+
 
 
 # #  search result api
@@ -62,7 +63,7 @@ class send_results(Resource):
 
 
 
-
+api.add_resource(scrape_results, '/')
 api.add_resource(scrape_results, '/api/search/<string:userinput>')
 api.add_resource(create_results, '/api/send')
 api.add_resource(send_results, '/api/send/<string:filename>')
