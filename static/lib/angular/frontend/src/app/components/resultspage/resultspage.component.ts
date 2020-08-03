@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {ScrapedataService } from '../../services/scrapedata.service'
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class ResultspageComponent implements OnInit {
 paramTest:string = 'hello'
 listingData = placeholder
-  constructor(private route: ActivatedRoute, private ScrapedataService: ScrapedataService, private sanitizer: DomSanitizer) { }
+  constructor(private _router: Router, private route: ActivatedRoute, private ScrapedataService: ScrapedataService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -26,12 +26,12 @@ listingData = placeholder
   }
 
   getSpreadsheet(){
-    this.ScrapedataService.getSpreadsheetFile(this.listingData).subscribe(resFile => {
-      console.log('got file');
-      
+    this.ScrapedataService.createSpreadsheetFile(this.listingData).subscribe(async resFile => {
+      console.log(resFile.message);
+      window.location.href = `http://localhost:5000/api/send/${resFile.message}`
     })
     
-  }
+  } 
 }
 
 //    placeholder data on async load

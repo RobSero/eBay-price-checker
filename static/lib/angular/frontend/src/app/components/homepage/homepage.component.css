@@ -28,17 +28,18 @@
   display: inline-block;
   width: 200px;
   height: 40px;
-  background-color: rgb(202, 141, 151);
+  background-color: #691c3a;
   border-radius: 5px;
   border: grey 1px solid;
   margin-top: 10px;
   transition: all 0.4s ease;
   font-size: 18px;
+  color: white;
 }
 
 .search-button:hover {
   cursor: pointer;
-  background-color: #691c3a;
+  background-color: #ce678e;
   color: white;
 }
 

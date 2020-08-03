@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, send_file
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from static.server.scraper import result_generator
@@ -42,29 +42,30 @@ class scrape_results(Resource):
 
 
 
-class send_results(Resource):
+class create_results(Resource):
+  # createspreadsheet
     def post(self):
         print('recieved')
         user_email = request.json['name']
         print(user_email)
         createSpreadsheet(request.json)
-        print(f'{request.json["name"]} - eBayData.xlsx')
-        # return  send_from_directory('./', f'{request.json["name"]} - eBayData.xlsx', as_attachment=True)
-        f = open(f'{request.json["name"]} - eBayData.xlsx', 'rb')
-        output = make_response(f.read())
-        output.headers["Content-Disposition"] = "attachment; filename=report.xlsx"
-        output.headers["Content-type"] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        f.close()
-        return output
-
-
+        print(f'{request.json["name"]}_eBayData.xlsx')
+        return {'message' : f'{request.json["name"]}'}
+     
+        #  send spreadsheet
+    
+        
+class send_results(Resource):
+  def get(self, filename):
+        print('recieved')
+        return send_file(f'{filename}_eBayData.xlsx', as_attachment=True)
 
 
 
 
 api.add_resource(scrape_results, '/api/search/<string:userinput>')
-api.add_resource(send_results, '/api/send')
-
+api.add_resource(create_results, '/api/send')
+api.add_resource(send_results, '/api/send/<string:filename>')
 
 jsonData = {
   "average_price": 109.68,

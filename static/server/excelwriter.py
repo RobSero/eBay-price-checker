@@ -9,7 +9,7 @@ def createSpreadsheet(ebayData):
   product_name = ebayData['name']
   listings = ebayData['results']
 
-  workbook = xlsxwriter.Workbook(f'{product_name} - eBayData.xlsx')
+  workbook = xlsxwriter.Workbook(f'{product_name}_eBayData.xlsx')
   worksheet = workbook.add_worksheet()
 # Add a bold format to use to highlight cells.
   bold = workbook.add_format({'bold': True})
