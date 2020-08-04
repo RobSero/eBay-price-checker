@@ -13,7 +13,7 @@ api = Api(app)
 
 @app.route('/')
 def homeView():
-    return send_file('static/lib/angular/frontend/dist/frontend/index.html')
+    return jsonify({'text' : 'heyaaa'})
 
 
 class scrape_results(Resource):
