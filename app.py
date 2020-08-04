@@ -16,30 +16,30 @@ def homeView():
     return '<h1>Hello Chapss</h1>'
 
 
-# class scrape_results(Resource):
-#     def get(self, userinput):
-#         results = result_generator(input=userinput)  
-#         return results
+class scrape_results(Resource):
+    def get(self, userinput):
+        results = result_generator(input=userinput)  
+        return results
 
 
 
-# class create_results(Resource):
-#   # createspreadsheet
-#     def post(self):
-#         print('recieved')
-#         user_email = request.json['name']
-#         print(user_email)
-#         createSpreadsheet(request.json)
-#         print(f'{request.json["name"]}_eBayData.xlsx')
-#         return {'message' : f'{request.json["name"]}'}
+class create_results(Resource):
+  # createspreadsheet
+    def post(self):
+        print('recieved')
+        user_email = request.json['name']
+        print(user_email)
+        createSpreadsheet(request.json)
+        print(f'{request.json["name"]}_eBayData.xlsx')
+        return {'message' : f'{request.json["name"]}'}
      
-#         #  send spreadsheet
+        #  send spreadsheet
     
         
-# class send_results(Resource):
-#   def get(self, filename):
-#         print('recieved')
-#         return send_file(f'./sheets/{filename}_eBayData.xlsx', as_attachment=True)
+class send_results(Resource):
+  def get(self, filename):
+        print('recieved')
+        return send_file(f'./sheets/{filename}_eBayData.xlsx', as_attachment=True)
 
 
 
