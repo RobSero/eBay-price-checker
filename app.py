@@ -13,7 +13,7 @@ api = Api(app)
 
 @app.route('/')
 def homeView():
-    return jsonify({'text' : 'heyaaa'})
+    return '<h1>Goodbye Chapss</h1>'
 
 
 class scrape_results(Resource):
