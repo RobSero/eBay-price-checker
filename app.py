@@ -13,7 +13,7 @@ api = Api(app)
 
 @app.route('/')
 def homeView():
-    return '<h1>Goodbye Chapss</h1>'
+    return send_file('static/lib/angular/frontend/dist/frontend/index.html')
 
 
 class scrape_results(Resource):
@@ -24,7 +24,7 @@ class scrape_results(Resource):
 
 
 class create_results(Resource):
-  # createspreadsheet
+  # create spreadsheet
     def post(self):
         print('recieved')
         user_email = request.json['name']
@@ -33,9 +33,9 @@ class create_results(Resource):
         print(f'{request.json["name"]}_eBayData.xlsx')
         return {'message' : f'{request.json["name"]}'}
      
-        #  send spreadsheet
-    
         
+    
+#  send spreadsheet        
 class send_results(Resource):
   def get(self, filename):
         print('recieved')
