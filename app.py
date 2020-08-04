@@ -11,9 +11,9 @@ CORS(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
-class home(Resource):
-    def get(self):
-        return '<h1>Hello</h1>'
+@app.route('/')
+def homeView():
+    return '<h1>Hello Chapss</h1>'
 
 
 
