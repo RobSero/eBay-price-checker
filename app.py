@@ -1,8 +1,8 @@
 from flask import Flask, request, send_from_directory, send_file
 # from flask_restful import Resource, Api
 # from flask_cors import CORS
-# from static.server.scraper import result_generator
-# from static.server.excelwriter import createSpreadsheet
+from static.server.scraper import result_generator
+from static.server.excelwriter import createSpreadsheet
 
 app = Flask(__name__)
 # app.run(debug=True)
