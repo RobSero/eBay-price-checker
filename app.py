@@ -5,7 +5,7 @@ from static.server.scraper import result_generator
 from static.server.excelwriter import createSpreadsheet
 
 app = Flask(__name__)
-app.run(debug=True)
+# app.run(debug=True)
 api = Api(app)
 # CORS(app)
 # cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
