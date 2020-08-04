@@ -63,7 +63,7 @@ class send_results(Resource):
 
 
 
-api.add_resource(scrape_results, '/')
+# api.add_resource(scrape_results, '/')
 api.add_resource(scrape_results, '/api/search/<string:userinput>')
 api.add_resource(create_results, '/api/send')
 api.add_resource(send_results, '/api/send/<string:filename>')

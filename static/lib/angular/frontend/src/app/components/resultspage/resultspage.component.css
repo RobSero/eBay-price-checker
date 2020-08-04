@@ -44,7 +44,8 @@
   display: inline-block;
   width: 170px;
   padding: 5px;
-  background-color: pink;
+  background-color: #691c3a;
+  color: white;
   border-radius: 5px;
   border: grey 1px solid;
   margin: 20% auto;
@@ -54,8 +55,8 @@
 
 .results-submit:hover {
   cursor: pointer;
-  background-color: #691c3a;
-  color: white;
+  background-color: pink;
+  color: rgb(20, 18, 18);
 }
 
 .table-container {
