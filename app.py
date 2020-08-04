@@ -6,14 +6,14 @@ from static.server.excelwriter import createSpreadsheet
 
 app = Flask(__name__)
 # app.run(debug=True)
-# api = Api(app)
+api = Api(app)
 # CORS(app)
 # cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 @app.route('/')
 def homeView():
-    return '<h1>Hello Chapss</h1>'
+    return '<h1>Goodbye Chapss</h1>'
 
 
 class scrape_results(Resource):
@@ -43,6 +43,6 @@ class send_results(Resource):
 
 
 
-# api.add_resource(scrape_results, '/api/search/<string:userinput>')
-# api.add_resource(create_results, '/api/send')
-# api.add_resource(send_results, '/api/send/<string:filename>')
+api.add_resource(scrape_results, '/api/search/<string:userinput>')
+api.add_resource(create_results, '/api/send')
+api.add_resource(send_results, '/api/send/<string:filename>')
