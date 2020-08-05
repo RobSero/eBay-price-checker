@@ -33,7 +33,7 @@ listingData = placeholder
   getSpreadsheet(){
     this.ScrapedataService.createSpreadsheetFile(this.listingData).subscribe(async resFile => {
       console.log(resFile.message);
-      window.location.href = `http://localhost:5000/api/send/${resFile.message}`
+      window.location.href = `https://ebuddyscraper.herokuapp.com/send/${resFile.message}`
     })
     
   } 

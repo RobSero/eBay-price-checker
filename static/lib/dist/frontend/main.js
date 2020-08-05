@@ -470,7 +470,7 @@ class ResultspageComponent {
     getSpreadsheet() {
         this.ScrapedataService.createSpreadsheetFile(this.listingData).subscribe((resFile) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             console.log(resFile.message);
-            window.location.href = `http://localhost:5000/api/send/${resFile.message}`;
+            window.location.href = `https://ebuddyscraper.herokuapp.com/send/${resFile.message}`;
         }));
     }
 }
@@ -611,7 +611,7 @@ header.set('cheese', 'tastes good');
 class ScrapedataService {
     constructor(http) {
         this.http = http;
-        this.apiURL = 'http://localhost:5000/api/search/';
+        this.apiURL = 'https://ebuddyscraper.herokuapp.com/api/search/';
     }
     // get data from api, requires search string argument
     getEbayData(searchParam) {
@@ -619,7 +619,7 @@ class ScrapedataService {
     }
     createSpreadsheetFile(listingInfo) {
         console.log('getting file now');
-        return this.http.post('http://localhost:5000/api/send', listingInfo);
+        return this.http.post('https://ebuddyscraper.herokuapp.com/api/send', listingInfo);
     }
 }
 ScrapedataService.ɵfac = function ScrapedataService_Factory(t) { return new (t || ScrapedataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };

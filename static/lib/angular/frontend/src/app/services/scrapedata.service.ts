@@ -11,7 +11,7 @@ header.set('cheese', 'tastes good');
   providedIn: 'root'
 })
 export class ScrapedataService {
-apiURL:string = 'http://localhost:5000/api/search/'
+apiURL:string = 'https://ebuddyscraper.herokuapp.com/api/search/'
 
 
   constructor(private http:HttpClient) { }
@@ -24,7 +24,7 @@ getEbayData(searchParam: string): Observable<any>{
 
 createSpreadsheetFile(listingInfo:Object): Observable<any>{
   console.log('getting file now');
-  return this.http.post<any>('http://localhost:5000/api/send',listingInfo)
+  return this.http.post<any>('https://ebuddyscraper.herokuapp.com/api/send',listingInfo)
 }
 
 }
