@@ -13,7 +13,7 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/')
 def homeView():
-    return render_template('index.html', flask_token='Hello')
+    return render_template('index1.html', flask_token='Hello')
 
 
 class scrape_results(Resource):
