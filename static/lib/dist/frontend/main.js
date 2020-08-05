@@ -615,7 +615,8 @@ class ScrapedataService {
     }
     // get data from api, requires search string argument
     getEbayData(searchParam) {
-        return this.http.get(`api/search/${searchParam}`);
+        console.log('heyyaaaaa');
+        return this.http.get(`apfdfvdvi/search/${searchParam}`);
     }
     createSpreadsheetFile(listingInfo) {
         console.log('getting file now');
