@@ -615,11 +615,11 @@ class ScrapedataService {
     }
     // get data from api, requires search string argument
     getEbayData(searchParam) {
-        return this.http.get(`https://ebuddyscraper.herokuapp.com/api/search/${searchParam}`);
+        return this.http.get(`api/search/${searchParam}`);
     }
     createSpreadsheetFile(listingInfo) {
         console.log('getting file now');
-        return this.http.post('https://ebuddyscraper.herokuapp.com/api/send', listingInfo);
+        return this.http.post('api/send', listingInfo);
     }
 }
 ScrapedataService.ɵfac = function ScrapedataService_Factory(t) { return new (t || ScrapedataService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };

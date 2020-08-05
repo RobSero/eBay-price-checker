@@ -19,12 +19,12 @@ apiURL:string = 'https://ebuddyscraper.herokuapp.com/api/search/'
 
 // get data from api, requires search string argument
 getEbayData(searchParam: string): Observable<any>{
-  return this.http.get<any>(`https://ebuddyscraper.herokuapp.com/api/search/${searchParam}`)
+  return this.http.get<any>(`api/search/${searchParam}`)
 }
 
 createSpreadsheetFile(listingInfo:Object): Observable<any>{
   console.log('getting file now');
-  return this.http.post<any>('https://ebuddyscraper.herokuapp.com/api/send',listingInfo)
+  return this.http.post<any>('api/send',listingInfo)
 }
 
 }
