@@ -22,6 +22,11 @@ listingData = placeholder
         resEbayLisitings['average_price'] = `£${resEbayLisitings['average_price']}`
         this.listingData = resEbayLisitings
       })
+    setTimeout(()=>{
+      if(this.listingData.average_price == 'Searching'){
+        this.listingData = failedPlaceholder
+      }
+    }, 4000)
   })
   }
 
@@ -44,6 +49,21 @@ const placeholder = {
       "Searching",
       '00.00',
       "Searching",
+      "#"
+    ]
+  ]
+  } 
+
+  //    Failed to find placeholder
+const failedPlaceholder = {
+  average_price: 'Not Found',
+  image: "https://res.cloudinary.com/dy7eycl8m/image/upload/v1596620667/pngwave_29_de9fmx.png",
+  name: "Could not find what you was looking for, please try again",
+  results: [
+    [
+      "Not Found",
+      '00.00',
+      "Not Found",
       "#"
     ]
   ]
