@@ -3,7 +3,7 @@ import {Observable} from 'rxjs'
 import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http'
 
 let header = new HttpHeaders();
-header.set('Access-Control-Allow-Origin', '*');
+// header.set('Access-Control-Allow-Origin', '*');
 header.set('responseType', 'ResponseContentType.Blob');
 header.set('cheese', 'tastes good');
 
@@ -19,7 +19,7 @@ apiURL:string = 'https://ebuddyscraper.herokuapp.com/api/search/'
 
 // get data from api, requires search string argument
 getEbayData(searchParam: string): Observable<any>{
-  return this.http.get<any>(`${this.apiURL}${searchParam}`)
+  return this.http.get<any>(`https://ebuddyscraper.herokuapp.com/api/search/${searchParam}`)
 }
 
 createSpreadsheetFile(listingInfo:Object): Observable<any>{

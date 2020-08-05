@@ -1,6 +1,0 @@
-{
-  "/api/g": {
-    "target": "https://ebuddyscraper.herokuapp.com/",
-    "secure": false
-  }
-}

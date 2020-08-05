@@ -605,7 +605,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
-header.set('Access-Control-Allow-Origin', '*');
+// header.set('Access-Control-Allow-Origin', '*');
 header.set('responseType', 'ResponseContentType.Blob');
 header.set('cheese', 'tastes good');
 class ScrapedataService {
@@ -615,7 +615,7 @@ class ScrapedataService {
     }
     // get data from api, requires search string argument
     getEbayData(searchParam) {
-        return this.http.get(`${this.apiURL}${searchParam}`);
+        return this.http.get(`https://ebuddyscraper.herokuapp.com/api/search/${searchParam}`);
     }
     createSpreadsheetFile(listingInfo) {
         console.log('getting file now');
