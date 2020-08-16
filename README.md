@@ -1,6 +1,6 @@
 # eBuddy - eBay Quick Price Finder App
  
-*Deployed Site:* TBC
+*NOTE:* Download spreadsheet functionality is currently not yet implemented on live servers however this may still be achieved by running the app on localhost.
 
 ![database diagram](static/img/ebuddy-project-image.png)
  
