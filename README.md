@@ -1,18 +1,18 @@
 # eBuddy - eBay Quick Price Finder App
  
-*NOTE:* Download spreadsheet functionality is currently not yet implemented on live servers however this may still be achieved by running the app on localhost.
+*NOTE:* Due to Heroku's ephemeral dyno behaviour and no permanent data storage has been provided, the download spreadsheet functionality is currently not yet implemented on live servers however this may still be achieved by running the app on localhost.
 
 ![database diagram](static/img/ebuddy-project-image.png)
  
 ## Brief: Solo Project - Two Day Timespan
 This project was conceptualized when my parents were spending too much time looking and checking prices on eBay/Gumtree when they were searching for bargains in charity shops and bootsales.
-I wanted to build them a quick and simple platform which enabled them to quickly identify a rough second-hand price for items to help them decide whether it would be worth the investment to buy and resell the item.
+I wanted to build them a simple platform which enabled them to quickly identify a rough second-hand price for items to help them decide whether it would be worth the investment to buy and resell the item.
  
 There were no particular requirements for this project however it was a great opportunity to do a sprint and experiment with some technology that was not covered on the General Assembly Bootcamp: Angular, React Native and Flask RESTful API.
  
 It was useful to reinforce some of my previous knowledge on web scraping and writing files so I decided to incorporate this functionality into the app too. 
  
-To improve the ease of use, I also aimed to allow a version to run as a native app for mobile so it was not a requirement to open tabs in chrome’s native app with each use. 
+For ease of use, I built a version to run as a native app for mobile so it was not a requirement to open tabs in chrome’s native app with each use. 
  
 ***Note: Prior to deployment, I have made a few bug fixes and prepared the project for deployment but the core features were completed within 2 days, the React Native took an additional day as I needed to write a new set of code from scratch. More details on this below.***
  
@@ -20,13 +20,10 @@ To improve the ease of use, I also aimed to allow a version to run as a native a
  
 eBuddy follows RESTful patterns with how the frontend interacts with the Flask API server - This would not be considered a full stack app because there was no need to introduce a database as no data is stored permanently on the app for future use.
  
-The user input into the search bar will then make a AJAX requests to the server to scrape the data from eBay’s listings pages. This data is then filtered and then returned to the user in an easy to read format, along with links to the individual listings.
+The user input into the search bar will then make AJAX requests to the server to scrape the data from eBay’s listing pages. This data is then filtered and then returned to the user in an easy to read format, along with links to the individual listings.
  
 The user may also wish to download an excel file of the listings for later use if desired.
- 
-(ADD IMAGE)
- 
- 
+  
 ## **2.0 Technology Summary**
  
 ### **2.1 - Client Side**
@@ -37,7 +34,7 @@ The user may also wish to download an excel file of the listings for later use i
 - Bulma Framework
 - Flexbox
  
-The client side was quite a quick process to build due to the simplicity of the layouts and there are only two views controlled by the Angular/React Router.
+The client side was quite a quick process to build due to the simplicity of the layouts and there were only two views controlled by the Angular/React Router.
 Ideally, it would have been faster to build the web version in React but I wanted to experience what Angular had to offer and see how TypeScript interacted with it. Flexbox was used in various areas to ensure the app is consistently responsive at most screen breakpoints.
  
 ### **2.2 - Server Side -**
@@ -69,9 +66,9 @@ The services were a nice addition as a place to handle the AJAX calls and then i
  
 Even though it was always planned to build a native version of the app, from a time saving point of view (and for maintenance purposes), it would have made sense to build the web app in React too because the component logic would have been almost identical. It would have just been a matter of revising the render part of the components and updating them with the mobile equivalents. 
  
-Trialing out Angular was something I wanted to try though and as this app was quick and simple, it was not too much of an issue to produce a fresh new app specifically for mobile. Plus the learning opportunities were valuable along the way.
+Experimenting with Angular was something I wanted to try though and as this app was quick and simple, it was not too much of an issue to produce a fresh new app specifically for mobile. Plus the learning opportunities were valuable along the way.
  
-React Native was intuitive and I felt like it was very responsive to build the app. However I did miss the component tree that Google Chrome’s developer tools offered as I always liked using that section to review the state of my components. 
+React Native felt intuitive however I did miss the component tree that Google Chrome’s developer tools offered as I would utilize that section to review the state of my components all the time.
  
 ## **4.0 - Server Side**
  
@@ -81,9 +78,9 @@ React Native was intuitive and I felt like it was very responsive to build the a
  
 Flask was an exceptionally fast microframework to get my server running and the simplicity of it was incredible. Overall, there are only three actively used python files in my project structure to handle the whole server side. 
  
-`App.py` handles all the controllers in a simple syntax while the other two files are separated into their concerns: Webscraping and spreadsheet writing.
+`app.py` handles all the controllers in a simple syntax while the other two files are separated into their concerns: Webscraping and spreadsheet writing.
  
-Going forward, I will certainly highly consider using Flask for basic projects on sprints but I personally prefer the robustness of Django for most situations I believe I will encounter in the future. The fact that there was no database required meant that Flask was ideal for just providing a few simple endpoints to my client side.
+Going forward, I will highly consider using Flask for basic projects on sprints but I personally prefer the robustness of Django for most situations I believe I will encounter in the future. The fact that there was no database required meant that Flask was ideal for just providing a few simple endpoints to my client side.
  
 ### **4.2 - Webscraping**
 
@@ -104,7 +101,7 @@ This was an interesting section to build as I had to play around with loops and 
  
 ### **5.1 - Notable Bugs**
  
-- Error handling is quite limited on the Web App version, particularly if the user tries to put a poorly spelt search input because eBay will not return any data to the webscraper if this is the case. The mobile app using React Native has error handling built in because that is the platform where the app will actually be used in real life situations.
+- Error handling is quite limited on the web app version, particularly if the user tries to put a poorly spelt search input because eBay will not return any data to the webscraper if this is the case. The mobile app using React Native has error handling built in because that is the platform where the app will actually be used in real life situations.
  
 - Due to the project being a sprint and with a limited target audience of my parents, it is unlikely I will return to fix this minor bug on the web version as time would be better spent on more significant future projects.
  
@@ -117,5 +114,5 @@ Flask I could definitely see a use for and will continue to use it on smaller ap
   
 - Unless absolutely required, I have confirmed that I will be sticking with React for any single page applications because the bloated nature of Angular’s file system I felt was a bit messy and unnecessary particularly after using JSX files. A good experience but I would rather spend more time mastering React in future projects.
   
-- Building native mobile apps was very enjoyable and the similarity to ReactDOM was very surprising. As a result, I will be looking to see if it is possible to build native apps to supplement any React projects I work on because of the simple(ish) transition over and the fun of it.
+- Building native mobile apps was very enjoyable and the similarity to ReactDOM was quite surprising. As a result, I will be looking to see if it is possible to build native apps to supplement any React projects I work on because of the simple(ish) transition over and the fun of it.
  
